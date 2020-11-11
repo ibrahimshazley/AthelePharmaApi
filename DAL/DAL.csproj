@@ -1,0 +1,768 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73E219A2-81EA-40CC-AE21-E9826C22160D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44316</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PharmaERPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PharmaERPModel.Context.cs</LastGenOutput>
+      <DependentUpon>PharmaERPModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="PharmaERPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PharmaERPModel.edmx</DependentUpon>
+      <LastGenOutput>PharmaERPModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDuesAndDeduct_Setting.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppRolesMenuPriviledge.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppUsersMenuPriviledge.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_ErrorLog.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_Menus.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Settings.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AR_Dict.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groups.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group_Pages.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Absence_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Administrations.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_AlternativeEmployeesTrans.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_AppSettingTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Assets_Group.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_AssignWorkFlowToRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Banks.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_BeginEmpReceivableDues_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_BranchAccounts.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_BranchAccount_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_BranchDocuments.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Branches.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Branch_Docs_Dtls_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Branch_Docs_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Branch_Doc_Notification_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Cities.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Companies.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_CompaniesTree.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Countries.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Currencies.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_DailyTimeSheet.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_DayTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_DeductionReasons.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Departments.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_DisciplinaryProcedures.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_DismissalReasons.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_DocumentTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAbsenceRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAccomdationFees_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAccomdationFees_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAccomdationFees_OrgDtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAccomdationFees_OrgHdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAccomdationFees_Setting.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAnnualLeavePlanRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAnnualLeavePlanRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAnnualLeavePlanRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAttendance_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpAttendance_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBeginAnnualVacTransferdBal.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrowDelayRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrowDelayRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrowDelayRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrowRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrowRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrow_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrow_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpBorrow_Settings.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpCertifications.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpContractFinishNotifictions.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpContracts.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDelayRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDisciplinaryProcedureRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDisciplinaryProcedureRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDisciplinaryProcedureRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDismissalRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDismissalRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDismissalRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDues.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDuesVactionTicket.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDuesVactionTicketHistory.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpDues_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpEmploymentRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpEmploymentRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpEmploymentRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpExperiences.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpExtraRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpJobMissionRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpJobMissionRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpJobMissionRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmployeeContractPeriods.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmployeeContractPeriods_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmployeeContractsDetails.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Employees.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmployeesHistory.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmployeeStatus.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmploymentExperinceRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmploymentExperinceRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmploymentQualifyRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmploymentQualifyRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOtherMonthlyValueRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOverTimeOrder.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOverTimeOrder_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOverTimeRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOverTimeRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOverTimeRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpOverTime_Settings.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpPermissionOrder.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpPermissionOrder_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpPermissionRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpPermissionRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpPermissionRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpPermission_Settings.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpQualifications.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpRequestNotify.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpResignationRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpResignationRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpResignationRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpRewardRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpRewardRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpRewardRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSecondmentRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSecondmentRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSecondmentRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSecondment_Setting.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSkills.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSons.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpSpouses.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpTransferEmployeeRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpTransferEmployeeRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpTransferEmployeeRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpTravelTickectRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpTravelTickectRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpTravelTickectRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpVactionOrder.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpVactionOrder_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpVactionRecord.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpVactionRequest.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpVactionRequestWorkFlow.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_EmpWeekDaysDtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Emp_Assets.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Emp_Docs_Dtls_History.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Emp_Docs_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Emp_Doc_Notification_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Emp_HiringMonthStatus.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_ExperienceCategories.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Experiences.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_FinalFingerPrint.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_FingerPrint.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_FPModeStatus.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_GradeHiringItem.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_GradeHiringItemFixed.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_GradeHiringItem_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_GradeHiringItem_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_GradeJobGroups.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Grades.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_GradeVactionTicket.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringEmpDuesRequestEffect.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringEmpReceivableDues_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringEmpReceivableDues_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringEmpSocialInsuranceEffect.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringMonth_ActuallDues_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringMonth_ActuallDues_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringMonth_DelayDues_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringMonth_DelayDues_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringMonth_FollowUp_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_HiringMonth_FollowUp_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Hiring_Items.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_InporgressAndApprovedRequests.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Jobs.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_MilitaryStatuses.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Nationalities.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Notification_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Official_Vacations.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_OverTime_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_PermissionReasons.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_PermissionSubReasons.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Permission_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Projects.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Qualifications.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_QualificationTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Religions.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_RequestGroup_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_RequestStatus.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_RequestTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_RequestTypesDtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_RewardReasons.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_ShiftGroups.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Shifts.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Shifts_Details.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_ShiftWeekDaysDtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_SocialStatuses.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Social_InsuranceDeductionPercntg_SA.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Social_InsuranceTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_TicketTypes.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_TimeAttendanceSetting.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Users.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_Vaction_Types.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_WeekPolicySystem.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_WeekPolicySystemDaysDtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Hr_WeekSysDays.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menus.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PharmaERPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PharmaERPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PharmaERPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PharmaERPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PharmaERPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransLog.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TxtEmployeeData.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Pages.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow_Dtls.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow_Hdr.cs">
+      <DependentUpon>PharmaERPModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <EntityDeploy Include="PharmaERPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PharmaERPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="PharmaERPModel.edmx.diagram">
+      <DependentUpon>PharmaERPModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50531</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44316/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
